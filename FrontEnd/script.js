@@ -17,8 +17,7 @@ fetch("http://localhost:5678/api/works")
      galleryjs.appendChild(projetElement);
     });    
     
- }
-  );
+ });
 
   // filtrer les projets grâce aux boutons//
 
@@ -56,4 +55,5 @@ function filterByCategory(category) {
           `;
           galleryjs.appendChild(projetElement);
 });
+
 }
