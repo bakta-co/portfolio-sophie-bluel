@@ -10,11 +10,11 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/login.css">
-	<script src="script.js" defer></script>
+	<script src="login.js" defer></script>
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
@@ -28,12 +28,13 @@
     <div class="login" id="login">
 		<h2>Log In</h2>
 		
-		<form class="form_login" action="#" method="post" id="login_form">
+		<form id="login-form">
 			<label for="email">Email</label>
 			<input type="email" name="email" id="email">
 			<label for="password">Mot de passe</label>
 			<input type="password" name="password" id="password">
 			<input type="submit" value="Se connecter">
+			<p id="form-messages"></p>
             <p><a href=#>Mot de passe oublié</a></p>
 		</form>
 	</div>
