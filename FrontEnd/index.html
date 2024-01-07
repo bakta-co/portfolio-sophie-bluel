@@ -9,7 +9,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="script.js" defer></script>
+	<link rel="stylesheet" href="./assets/modale.css">
+	<script src="script.js" defer></script>	
+	<script src="modal.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <header>
@@ -18,8 +23,8 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li> <a href= login.html> login </a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li id="loginLogout"> <a id="loginLogoutLink" href= login.html> login </a></li>
+			<li ><img class="insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
@@ -36,13 +41,58 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<h2 class="mesProjets">Mes Projets <span id="modifications" class="modal-btn modal-trigger"></span></h2>
+		
+		<div class="modal-container">
+		<div class="overlay modal-trigger"></div>
+		<div class="modal" role="dialog">
+			<div class="page1">
+				<span class="close-modal modal-trigger"><i class="fa-solid fa-xmark"></i></span>
+				<h3 class="titremodale"> Galerie Photo </h3>  
+				<div class="gallery-modal-container">
+				<div id="gallery-modal" class="gallery-modal"></div> 
+				<span class="separation"></span>
+				<button class="ajouter">Ajouter une photo</button>
+</div> </div></div>
+
+		<div class="page2" style = "display: none;">
+		<i class="fa-solid fa-arrow-left"></i>
+		<span class="close-modal modal-trigger"><i class="fa-solid fa-xmark"></i></span>
+		<h3 class="titremodale"> Ajout Photo </h3>  
+
+		<form action="/api/works" method="post" enctype="multipart/form-data" id="imageForm" class="form-add" autocomplete="off">
+	   
+		<div class="div-img">
+		<i class="fa-regular fa-image"></i>
+		<span class="add-btn">
+
+		<label for="image">+ Ajouter image  </label>
+		<input type="file" accept="image/*" name="image" id="image" required>
+		</span>
+		<p class="format"> jpg, png : 4mo max </p>		
+
+		</div>
+		
+
+		<label for="title" >Titre </label>
+		<input type="text" class="label-titre" id="title" name="title" required>
+	   
+		<label for="categorie">Catégorie</label>
+		<select name="categorie" id="categorie" class="label-categorie" required>
+		</select><br>
+		<span class="separation"></span>
+		 <input type="submit" value="Valider" id="submitButton">
+
+		</form>
+	</div></div>
 
 	<section class="category" >
 		<div id="filter-buttons"></div>
 	</section>
 		<div id="gallery-js" class="gallery"></div>
 	</section>
+
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
